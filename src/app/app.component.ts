@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
       const cleanData = this.removeBadData(response);
       const sortedLaunches = this.sortLaunches(cleanData, 'launch_date_local');
       [this.launch] = sortedLaunches;
-      this.date = format(this.launch.launch_date_local, 'MMMM do, YYYY');
+      this.date = format(this.launch.launch_date_local, 'MMMM Do, YYYY');
       
       setInterval(() => {
         this.countdown = this.getCountdown(this.launch);
