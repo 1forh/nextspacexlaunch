@@ -49,6 +49,10 @@ h1, h2, h3, h4 { margin: 0; }
 	&__timer {
 		min-height: 120px;
 		font-size: 72px;
+
+		@media screen and (max-width: 600px) {
+			font-size: 52px;
+		}
 	}
 }
 
