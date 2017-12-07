@@ -49,9 +49,8 @@
       <p>Hasn't launched yet!</p>
     </ng-container>
   </div>
+</div>
 
-  <div class="info__item">
-    <h2>Reddit Post Link</h2>
-    <a [href]="launch.links.reddit_campaign" target="_blank">{{ launch.links.reddit_campaign }}</a>
-  </div>
+<div class="reddit-link" *ngIf="launch">
+  <a [href]="launch.links.reddit_campaign" target="_blank">View Reddit Thread</a>
 </div>
