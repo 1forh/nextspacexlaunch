@@ -15,11 +15,46 @@
   </div>
 </div>
 
-<!-- <div class="info" *ngIf="launch">
-  <p><strong>Details:</strong> {{ launch.details }}</p>
-  <p><strong>Launch Site:</strong> {{ launch.launch_site.site_name_long }}</p>
-  <p><strong>Launch Success:</strong> {{ launch.launch_success }}</p>
-  <p><strong>Rocket Details:</strong> {{ launch.rocket | json }}</p>
-  <p><strong>Reused Parts:</strong> {{ launch.reuse | json }}</p>
-  <p><strong>Reddit Link:</strong> <a [href]="launch.links.reddit_campaign" target="_blank">{{ launch.links.reddit_campaign }}</a></p>
-</div> -->
+<div class="info" *ngIf="launch">
+  <div class="info__item">
+    <h2>Launch Site</h2>
+    <p>{{ launch.launch_site.site_name_long }}</p>
+  </div>
+  
+  <div class="info__item" *ngIf="launch.details">
+    <h2>More Information</h2>
+    <p>{{ launch.details }}</p>
+  </div>
+
+  <div class="info__item">
+    <h2>Rocket Details</h2>
+    <p><strong>Name:</strong> {{ launch.rocket.rocket_name }}</p>
+  </div>
+
+  <div class="info__item">
+    <h2>Reused Parts</h2>
+    <p><strong>Core:</strong> {{ launch.reuse.core }}</p>
+    <p><strong>Side Core 1:</strong> {{ launch.reuse.side_core1 }}</p>
+    <p><strong>Side Core 2:</strong> {{ launch.reuse.side_core2 }}</p>
+    <p><strong>Fairings:</strong> {{ launch.reuse.fairings }}</p>
+    <p><strong>Capsule:</strong> {{ launch.reuse.capsule }}</p>
+  </div>
+
+  <div class="info__item">
+    <h2>Was the launch successful?</h2>
+    <ng-container *ngIf="launch.launch_success === false">
+      <p>Yes!</p>
+    </ng-container>
+    <ng-container *ngIf="launch.launch_success === false">
+      <p>No...</p>
+    </ng-container>
+    <ng-container *ngIf="launch.launch_success === null">
+      <p>Hasn't launched yet!</p>
+    </ng-container>
+  </div>
+
+  <div class="info__item">
+    <h2>Reddit Post Link</h2>
+    <a [href]="launch.links.reddit_campaign" target="_blank">{{ launch.links.reddit_campaign }}</a>
+  </div>
+</div>
